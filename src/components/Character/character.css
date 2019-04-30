@@ -1,0 +1,12 @@
+.player-wrapper{
+    flex:1;
+
+    background-image: url(http://www.jvg.com.py/wp-content/uploads/2014/09/horizontal-lines-pattern.png)
+}
+.avatar{
+    max-height: 100%;
+    max-width: 30%;
+}
+.plattform{
+    
+}
