@@ -15,7 +15,7 @@
 }
 .plattform{
     bottom: -60%;
-    left: 25%;
+    left: 15%;
     z-index: -1;
 }
 .character-details, .attacks-gui{
@@ -24,7 +24,6 @@
     background: #444;
     border: 8px solid #222;
     border-radius: 8px;
-    margin: auto 2%;
     padding: 0.6em 2em;
 }
 .character-details{
@@ -48,6 +47,7 @@
     height: 20px;
     width: 20em;
     display: flex;
+    justify-content: flex-start !important;
 }
 .life div{
     background: #00FF33;
@@ -71,7 +71,7 @@
     flex-direction: row-reverse;
 }
 .enemy .character-details{
-    margin: auto;
+    margin-left: auto;
 }
 .player .character-details{
     margin-right: auto;

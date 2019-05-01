@@ -5,7 +5,15 @@
     justify-content: space-around;
     overflow: hidden;
 }
-
+#preventClicks{
+  background-color: transparent;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 200;
+}
 .attacks-gui{
   text-align: center;
   padding: 0!important;
@@ -14,11 +22,13 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 95vw!important;
+  width: 100vw!important;
   justify-content: space-between;
+  margin: 0 ;
 }
 .attacks-gui h1{
   margin: auto 1em;
+  width: 50%
 }
 .attacks{
   margin-top:5%;
