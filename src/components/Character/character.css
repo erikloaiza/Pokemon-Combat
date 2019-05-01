@@ -1,12 +1,82 @@
-.player-wrapper{
+.character-wrapper{
     flex:1;
-
-    background-image: url(http://www.jvg.com.py/wp-content/uploads/2014/09/horizontal-lines-pattern.png)
+    display:flex;
+    justify-content: space-between;
+    margin: 0 em;
 }
-.avatar{
-    max-height: 100%;
-    max-width: 30%;
+.character{
+    height: 100%;
+    width: 70vh;
+    position: relative;
+}
+.character *{
+    max-width: 100%;
+    position: absolute;
 }
 .plattform{
-    
+    bottom: -60%;
+    left: 25%;
+    z-index: -1;
+}
+.character-details, .attacks-gui{
+    height: fit-content;
+    width: fit-content;
+    background: #444;
+    border: 8px solid #222;
+    border-radius: 8px;
+    margin: auto 2%;
+    padding: 0.6em 2em;
+}
+.character-details{
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 2;
+}
+.character-details div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.character-details >div{
+    justify-content: space-between;
+    color: white;
+}
+.life{
+    background: #f7f7f7;
+    border-radius: 10px;
+    border: 2px solid #f7f7f7;
+    height: 20px;
+    width: 20em;
+    display: flex;
+}
+.life div{
+    background: #00FF33;
+    height: 90%;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+.life::before{
+    color:#222;
+    content:'HP';
+    background: inherit;
+    border-radius: inherit;
+    margin: 0 0.2em;
+}
+.life + span{
+    color:white;
+    margin-left: auto;
+}
+/*Sort directions*/
+.enemy{
+    flex-direction: row-reverse;
+}
+.enemy .character-details{
+    margin: auto;
+}
+.player .character-details{
+    margin-right: auto;
+}
+
+.player{
+    margin-bottom: 8em;
 }

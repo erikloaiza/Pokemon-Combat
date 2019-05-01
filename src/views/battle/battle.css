@@ -3,4 +3,113 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
+    overflow: hidden;
+}
+
+.attacks-gui{
+  text-align: center;
+  padding: 0!important;
+  Color: white;
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 95vw!important;
+  justify-content: space-between;
+}
+.attacks-gui h1{
+  margin: auto 1em;
+}
+.attacks{
+  margin-top:5%;
+  display: flex;
+  flex-flow: row wrap;
+  background: #f7f7f7;   
+  padding: 1em 0; 
+  margin: 0;
+  font-size: 1.5em;
+}
+.attack{
+  flex-basis: Calc(50% - 5.6em);
+  margin: 0.2em  2em;
+  padding: 0.8em;
+  cursor: pointer;
+  color: #222;
+  transition: .1s
+}
+.attack:hover{
+  transform: scale(1.1,1.1);
+  color:#000
+}
+.attack:hover::before{
+  content: '\25B6';
+  position: absolute;
+  margin-left: -2em;
+  padding-bottom: 2em;
+}
+
+
+/* Cool infinite background scrolling animation. https://codepen.io/kootoopas/pen/reyqg
+ * Twitter: @kootoopas
+ */
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse .92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse .92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse .92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse .92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
