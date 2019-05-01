@@ -50,10 +50,19 @@
     justify-content: flex-start !important;
 }
 .life div{
-    background: #00FF33;
     height: 90%;
     border-top-right-radius: inherit;
     border-bottom-right-radius: inherit;
+    transition: .3s
+}
+.life .green{
+    background: #00FF33;
+}
+.life .yellow{
+    background: #FFDD33;
+}
+.life .orange{
+    background: #FF3300;
 }
 .life::before{
     color:#222;
@@ -72,6 +81,7 @@
 }
 .enemy .character-details{
     margin-left: auto;
+    margin-top: 2%;
 }
 .player .character-details{
     margin-right: auto;

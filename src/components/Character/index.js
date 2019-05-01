@@ -12,7 +12,6 @@ class Character extends Component{
         console.log(this.props.desc)
         const name = this.props.desc?this.props.desc.stName:''
         const image = this.props.desc?this.props.desc.urlImg:''
-        const attacks = this.props.desc?this.props.desc.arAtacks:''
 
         const def = this.props.desc?this.props.desc.nuDf:''
         const life = this.props.desc?this.props.desc.nuLife:0; //Because we are chaging this value, with set it on the state
@@ -29,7 +28,7 @@ class Character extends Component{
                         <h3>Def: {def}</h3>
                     </div>
                     <div className="life">
-                        <div style={{width:life+'%'}}></div>
+                        <div style={{width:life+'%'}} className={life>50?'green':(life>25?'yellow':'orange')}></div>
                     </div>
                     <span>{life}/100</span>
                 </div>

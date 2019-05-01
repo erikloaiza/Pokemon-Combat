@@ -22,7 +22,8 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 100vw!important;
+  width: Calc(100vw - 1em)!important;
+  overflow: hidden;
   justify-content: space-between;
   margin: 0 ;
 }
@@ -42,7 +43,7 @@
 .attack{
   flex-basis: Calc(50% - 5.6em);
   margin: 0.2em  2em;
-  padding: 0.8em;
+  padding: 0.4em;
   cursor: pointer;
   color: #222;
   transition: .1s
