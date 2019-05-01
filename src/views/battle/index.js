@@ -2,6 +2,10 @@ import React,{Component} from'react'
 import https from 'http'
 import './battle.css'
 
+import Music from '../../assets/music.mp3'
+import MenuItem from '../../assets/menu-item.wav'
+
+
 import Player from '../../components/Character'
 class Battle extends Component{
     constructor(props){
@@ -16,13 +20,17 @@ class Battle extends Component{
         const player = this.state.player
         return(
             <div className="battle-wrapper">
+              <audio src={Music} autoPlay loop></audio>
+              <audio src={MenuItem} id="Sound-item"></audio>
               <Player desc={enemy} isOponent/>
               <Player desc={player}/>
               <div className="attacks-gui">
                     <h1>Select next attack</h1>
                     <div className="attacks">
                         {player.arAtacks?player.arAtacks.map(attack=>{
-                            return <div className="attack">{attack.stAtckName}</div>
+                            return <div className="attack" onMouseOver={this.PlayMenuSound}
+                            >
+                            {attack.stAtckName}</div>
                         }):''}
                     </div>      
               </div>
@@ -49,6 +57,10 @@ class Battle extends Component{
           }).on("error", (err) => {
             console.log("Error: " + err.message);
           });
+    }
+    PlayMenuSound(){
+      var sound = document.getElementById('Sound-item');
+      sound.play();
     }
 } 
 
