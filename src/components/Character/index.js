@@ -20,10 +20,14 @@ class Character extends Component{
         const maxLife = this.state.maxLife;
 
         const isOponent = this.props.isOponent; //True is aligned to right, False is aligned to lef
+
+        const isBeingAttacked = this.props.desc?this.props.isBeingAttacked:'';
+        console.log(isBeingAttacked)
+
         return(
             <div className={"character-wrapper " + (isOponent?'enemy':'player')}>
                 <div className="character">
-                    <img className="avatar" src={image}/>
+                    <img className={"avatar " + (isBeingAttacked?'avatar-tilt':'')} src={image}/>
                     <img className="plattform" src={Platform}/>
                 </div>
                 <div className="character-details">

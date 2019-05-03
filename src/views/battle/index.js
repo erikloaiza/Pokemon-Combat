@@ -15,15 +15,25 @@ class Battle extends Component{
         this.state ={
             enemy:{},
             player:{},
+            isEnemyAttacked:false,
+            isPlayerAttacked:false,
+
             message:'Selecciona tu próximo ataque',
+
             isOnGoingAction:false,
             isEndGame:false,
+            
             nameWinner:''
         }
     }
     render(){
         const enemy = this.state.enemy
         const player = this.state.player
+
+        const isEnemyAttacked=this.state.isEnemyAttacked;
+        const isPlayerAttacked=this.state.isPlayerAttacked;
+
+        
         const isOnGoingAction = this.state.isOnGoingAction;
         const isEndGame = this.state.isEndGame;
 
@@ -42,8 +52,10 @@ class Battle extends Component{
               <audio src={HurtEffective} id="Sound-hurt-effective"></audio>
               <audio src={HurtIneffective} id="Sound-hurt-ineffective"></audio>
 
-              <Player desc={enemy} isOponent/>
-              <Player desc={player}/>
+              <Player desc={enemy} isOponent isBeingAttacked={isEnemyAttacked}/>
+              <Player desc={player} isBeingAttacked={isPlayerAttacked}/>
+
+
               <div className="attacks-gui">
                     <h1>{this.state.message}</h1>
                     <div className="attacks">
@@ -89,7 +101,6 @@ class Battle extends Component{
       sound.play();
     }
     playInEffectiveHurtSound(){
-      console.log('omg')
       var sound = document.getElementById('Sound-hurt-ineffective');
       sound.play();
     }
@@ -105,15 +116,17 @@ class Battle extends Component{
 
       this.setState({
         message: this.state.player.stName+' usó '+name,
-        isOnGoingAction:true
+        isOnGoingAction:true,
+        isEnemyAttacked:true
       })
       setTimeout(()=>{
           enemy.nuLife -=totalDamage;
+          setTimeout(()=>this.setState({isEnemyAttacked:false}),1000)
           this.setState({
             enemy:enemy
           })
           if(totalDamage==5){
-            setTimeout(this.setState({message:"No es muy efectivo"}),1000)
+            setTimeout(()=>this.setState({message:"No es muy efectivo"}),1000)
             this.playInEffectiveHurtSound();
           }
           else{
@@ -136,21 +149,24 @@ class Battle extends Component{
       const totalDamage = (damage-def>0)?damage-def:5;
 
       this.setState({
-        message:this.state.enemy.stName+' usó '+name
+        message:this.state.enemy.stName+' usó '+name,
       })
 
       setTimeout(()=>{
         player.nuLife -=totalDamage;
         this.setState({
-          player:player
+          player:player,
+          isPlayerAttacked:true
         })
         if(totalDamage==5){
-          setTimeout(this.setState({message:"No es muy efectivo"}),1000)
+          this.setState({message:"No es muy efectivo"})
           this.playInEffectiveHurtSound();
         }
         else{
           this.playEffectiveHurtSound()
         }
+        setTimeout(()=>this.setState({isPlayerAttacked:false}),1000)
+
         setTimeout(()=>{
           this.setState({
             message:'Selecciona tu próximo ataque',

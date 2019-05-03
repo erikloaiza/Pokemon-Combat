@@ -90,3 +90,20 @@
 .player{
     margin-bottom: 8em;
 }
+
+
+/**Special animation Effects**/
+@keyframes tilt{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.enemy .avatar-tilt{
+    animation: tilt 0.2s linear 1s infinite;
+}
+.player .avatar-tilt{
+    animation: tilt 0.2s linear 0s infinite;
+}
