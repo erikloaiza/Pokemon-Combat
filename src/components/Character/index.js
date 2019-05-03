@@ -7,14 +7,18 @@ import Platform from '../../assets/plattform.png'
 class Character extends Component{
     constructor(props){
         super(props)
+        this.state={
+            maxLife:0
+        }
     }
     render(){
-        console.log(this.props.desc)
         const name = this.props.desc?this.props.desc.stName:''
         const image = this.props.desc?this.props.desc.urlImg:''
 
         const def = this.props.desc?this.props.desc.nuDf:''
-        const life = this.props.desc?this.props.desc.nuLife:0; //Because we are chaging this value, with set it on the state
+        const life = this.props.desc?this.props.desc.nuLife:0;
+        const maxLife = this.state.maxLife;
+
         const isOponent = this.props.isOponent; //True is aligned to right, False is aligned to lef
         return(
             <div className={"character-wrapper " + (isOponent?'enemy':'player')}>
@@ -30,10 +34,16 @@ class Character extends Component{
                     <div className="life">
                         <div style={{width:life+'%'}} className={life>50?'green':(life>25?'yellow':'orange')}></div>
                     </div>
-                    <span>{life}/100</span>
+                    <span>{life}/{maxLife}</span>
                 </div>
             </div>
         );
+    }
+    componentDidMount(){
+        console.log(this.props.desc)
+        this.setState({
+            maxLife:this.props.desc.life
+        });
     }
 }
 export default Character;

@@ -14,16 +14,27 @@ class Battle extends Component{
             enemy:{},
             player:{},
             message:'Selecciona tu próximo ataque',
-            isOnGoingAction:false
+            isOnGoingAction:false,
+            isEndGame:false,
+            nameWinner:''
         }
     }
     render(){
         const enemy = this.state.enemy
         const player = this.state.player
         const isOnGoingAction = this.state.isOnGoingAction;
+        const isEndGame = this.state.isEndGame;
+
+        const nameWinner = this.state.nameWinner;
+        
+        if(enemy.nuLife<=0||player.nuLife<=0)this.endGame();
         return(
             <div className="battle-wrapper">
               <div id='preventClicks' style={isOnGoingAction?{'display':'block'}:{'display':'none'}}></div>
+              <div id='endGame' style={isEndGame?{'display':'flex'}:{'display':'none'}}>
+                <h2>{nameWinner} ha ganado la batalla</h2>
+              </div>
+
               <audio src={Music} autoPlay loop></audio>
               <audio src={MenuItem} id="Sound-item"></audio>
               <Player desc={enemy} isOponent/>
@@ -121,7 +132,16 @@ class Battle extends Component{
           })
         },1000);
       },2000);
-      
+    }
+    endGame(){
+      if(this.state.isEndGame!=true){
+        var winner = (this.state.enemy.nuLife<=0)?this.state.player.stName:this.state.enemy.stName
+        this.setState({
+          nameWinner:winner,
+          isEndGame:true
+        })
+        setTimeout(window.location.reload.bind(window.location), 5000);
+      }
     }
 } 
 
