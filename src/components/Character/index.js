@@ -8,7 +8,7 @@ class Character extends Component{
     constructor(props){
         super(props)
         this.state={
-            maxLife:0
+            maxLife:100
         }
     }
     render(){
@@ -22,7 +22,6 @@ class Character extends Component{
         const isOponent = this.props.isOponent; //True is aligned to right, False is aligned to lef
 
         const isBeingAttacked = this.props.desc?this.props.isBeingAttacked:'';
-        console.log(isBeingAttacked)
 
         return(
             <div className={"character-wrapper " + (isOponent?'enemy':'player')}>
@@ -42,12 +41,6 @@ class Character extends Component{
                 </div>
             </div>
         );
-    }
-    componentDidMount(){
-        console.log(this.props.desc)
-        this.setState({
-            maxLife:this.props.desc.life
-        });
     }
 }
 export default Character;
