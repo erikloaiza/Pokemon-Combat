@@ -4,6 +4,8 @@ import './battle.css'
 
 import Music from '../../assets/music.mp3'
 import MenuItem from '../../assets/menu-item.wav'
+import HurtEffective from '../../assets/hurt-effective.wav'
+import HurtIneffective from '../../assets/hurt-ineffective.wav'
 
 
 import Player from '../../components/Character'
@@ -35,8 +37,11 @@ class Battle extends Component{
                 <h2>{nameWinner} ha ganado la batalla</h2>
               </div>
 
-              <audio src={Music} autoPlay loop></audio>
+              <audio src={Music} autoPlay loop volume='0.0'></audio>
               <audio src={MenuItem} id="Sound-item"></audio>
+              <audio src={HurtEffective} id="Sound-hurt-effective"></audio>
+              <audio src={HurtIneffective} id="Sound-hurt-ineffective"></audio>
+
               <Player desc={enemy} isOponent/>
               <Player desc={player}/>
               <div className="attacks-gui">
@@ -79,6 +84,15 @@ class Battle extends Component{
       var sound = document.getElementById('Sound-item');
       sound.play();
     }
+    playEffectiveHurtSound(){
+      var sound = document.getElementById('Sound-hurt-effective');
+      sound.play();
+    }
+    playInEffectiveHurtSound(){
+      console.log('omg')
+      var sound = document.getElementById('Sound-hurt-ineffective');
+      sound.play();
+    }
     attackEnemy(attack){
       const damage = attack.nuAtckPower;
       const name = attack.stAtckName;
@@ -98,7 +112,13 @@ class Battle extends Component{
           this.setState({
             enemy:enemy
           })
-        if(totalDamage==5)setTimeout(this.setState({message:"No es muy efectivo"}),1000)
+          if(totalDamage==5){
+            setTimeout(this.setState({message:"No es muy efectivo"}),1000)
+            this.playInEffectiveHurtSound();
+          }
+          else{
+            this.playEffectiveHurtSound()
+          }
         setTimeout(this.attackPlayer.bind(this),2000);
       },1000);
       
@@ -124,7 +144,13 @@ class Battle extends Component{
         this.setState({
           player:player
         })
-        if(totalDamage==5)setTimeout(this.setState({message:"No es muy efectivo"}),1000)
+        if(totalDamage==5){
+          setTimeout(this.setState({message:"No es muy efectivo"}),1000)
+          this.playInEffectiveHurtSound();
+        }
+        else{
+          this.playEffectiveHurtSound()
+        }
         setTimeout(()=>{
           this.setState({
             message:'Selecciona tu próximo ataque',
