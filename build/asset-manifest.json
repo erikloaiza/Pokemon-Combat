@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.55f5fe17.chunk.css",
+    "main.js": "/static/js/main.38a28b50.chunk.js",
+    "main.js.map": "/static/js/main.38a28b50.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.d58a9b30.chunk.js": "/static/js/2.d58a9b30.chunk.js",
+    "static/js/2.d58a9b30.chunk.js.map": "/static/js/2.d58a9b30.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.565ab75f8d18e50d4ef29f20b03b1544.js": "/precache-manifest.565ab75f8d18e50d4ef29f20b03b1544.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.55f5fe17.chunk.css.map": "/static/css/main.55f5fe17.chunk.css.map",
+    "static/media/hurt-effective.wav": "/static/media/hurt-effective.7c1c64de.wav",
+    "static/media/hurt-ineffective.wav": "/static/media/hurt-ineffective.14ae23ec.wav",
+    "static/media/menu-item.wav": "/static/media/menu-item.fc02613e.wav",
+    "static/media/music.mp3": "/static/media/music.f502ab8c.mp3",
+    "static/media/plattform.png": "/static/media/plattform.7cc65323.png"
+  }
+}
